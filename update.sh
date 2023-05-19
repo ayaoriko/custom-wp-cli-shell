@@ -1,5 +1,5 @@
 # アップデート
-wp core update --locale=ja --nightly
+wp core update --locale=ja --version=nightly
 
 # 古いバージョンにダウングレード
 # wp core update --version=5.3 --force

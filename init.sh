@@ -1,7 +1,6 @@
 #!/bin/bash
-
 # ベータ版への変更
-wp core update --nightly
+wp core update --locale=ja --version=nightly
 
 # ベータ版への変更解除
 #wp core update --version=latest --force
