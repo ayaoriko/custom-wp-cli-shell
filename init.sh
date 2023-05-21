@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# ベータ版への変更
+wp core update --locale=ja --version=nightly
+
+# ベータ版を通常版に戻す
+# wp core update --version=latest --force
+
+# テーマを全削除
+wp theme delete --all --force
+
+# サンプルの投稿、固定ページを削除
+wp --allow-root post delete 1 2 3 --force
+
+# サンプルのコメントを削除
+wp --allow-root comment delete 1 --force
+
+# カテゴリー名を日本語に変更
+wp term update category 1 --name='未分類'
+
 # サイトの言語を設定
 wp --allow-root core language install ja --activate
 
@@ -18,17 +36,11 @@ wp --allow-root rewrite structure '/%postname%/'
 # リライトルールを更新
 wp --allow-root rewrite flush
 
-# サンプルの投稿、固定ページを削除
-wp --allow-root post delete 1 2 --force
-
-# サンプルのコメントを削除
-wp --allow-root comment delete 1 --force
-
-# テーマを全削除
-wp theme delete --all --force
-
 # デバッグモードをtrueにする
 wp config set WP_DEBUG true --raw
+
+# プラグインを一旦すべて削除する
+wp plugin delete --all
 
 # 必要なプラグインインストール
 wp --allow-root plugin install wp-multibyte-patch --activate
@@ -51,9 +63,3 @@ echo "<?php
 \$wpmp_conf['mail_mode'] = 'UTF-8';
 \$wpmp_conf['patch_wp_mail'] = false;
 " >> wp-content/wpmp-config.php
-
-# ベータ版への変更
-wp core update --locale=ja --version=nightly
-
-# ベータ版を通常版に戻す
-# wp core update --version=latest --force
