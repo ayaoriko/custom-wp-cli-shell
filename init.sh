@@ -1,9 +1,4 @@
 #!/bin/bash
-# ベータ版への変更
-wp core update --locale=ja --version=nightly
-
-# ベータ版への変更解除
-#wp core update --version=latest --force
 
 # サイトの言語を設定
 wp --allow-root core language install ja --activate
@@ -57,5 +52,8 @@ echo "<?php
 \$wpmp_conf['patch_wp_mail'] = false;
 " >> wp-content/wpmp-config.php
 
-# WordPress 日本語コアファイルをアップデート
-wp --allow-root core update --locale=ja --force
+# ベータ版への変更
+wp core update --locale=ja --version=nightly
+
+# ベータ版を通常版に戻す
+# wp core update --version=latest --force
