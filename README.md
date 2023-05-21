@@ -1,11 +1,13 @@
 # wp-cli
 Local by Flywheel（Local） で新規作成した WordPress サイトを初期化および日本語化するスクリプトです。
 
-経緯等のブログはコチラです。
+経緯等のブログはこちらに記載しています。
+
 https://ayaoriko.com/coding/wordpress/custom-wp-cli-shell/
 
 ## 参考サイト、および参考のGit
 https://github.com/ko31/init-local-by-flywheel
+
 https://wp.go-sign.info/init-local-by-flywheel-to-ja/
 
 
