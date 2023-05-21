@@ -6,6 +6,8 @@ Local by Flywheel（Local） で新規作成した WordPress サイトを初期�
 ## 参考のGit
 https://github.com/ko31/init-local-by-flywheel
 
+## 対応の仕方
+
 ```Shell
 wp eval 'exec(file_get_contents("https://raw.githubusercontent.com/ayaoriko/custom-wp-cli-shell/master/init.sh")." > /dev/null", $output); printf("%s\n", implode("\n", $output));'
 ```
@@ -15,14 +17,21 @@ wp eval 'exec(file_get_contents("https://raw.githubusercontent.com/ayaoriko/cust
 wp theme activate テーマファイル名
 ```
 
+## その他シェル
+
+日本語に関する最低限の初期設定(日本語版再インストール、言語設定、日付設定、パーマリンク、wp-multibyte-patchのインストール)
+```Shell
+wp eval 'exec(file_get_contents("https://raw.githubusercontent.com/ayaoriko/custom-wp-cli-shell/master/ja.sh")." > /dev/null", $output); printf("%s\n", implode("\n", $output));'
+```
+
+
 テーマをアップデート時に利用
 ```Shell
 wp eval 'exec(file_get_contents("https://raw.githubusercontent.com/ayaoriko/custom-wp-cli-shell/master/update.sh")." > /dev/null", $output); printf("%s\n", implode("\n", $output));'
 ```
 
-# その他追記
 WooCommerceのインストール
 
-```
+```Shell
 wp --allow-root plugin install woocommerce --activate
 ```
