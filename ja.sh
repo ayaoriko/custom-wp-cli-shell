@@ -31,4 +31,5 @@ wp plugin install wp-multibyte-patch --activate
 echo "<?php
 \$wpmp_conf['mail_mode'] = 'UTF-8';
 \$wpmp_conf['patch_wp_mail'] = false;
+?>
 " >> wp-content/wpmp-config.php

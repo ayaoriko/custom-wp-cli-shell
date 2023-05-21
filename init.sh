@@ -62,4 +62,5 @@ wp plugin install all-in-one-wp-migration --activate
 echo "<?php
 \$wpmp_conf['mail_mode'] = 'UTF-8';
 \$wpmp_conf['patch_wp_mail'] = false;
+?>
 " >> wp-content/wpmp-config.php
