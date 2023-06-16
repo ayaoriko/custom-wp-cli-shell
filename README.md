@@ -31,7 +31,6 @@ wp theme activate テーマファイル名
 wp eval 'exec(file_get_contents("https://raw.githubusercontent.com/ayaoriko/custom-wp-cli-shell/master/ja.sh")." > /dev/null", $output); printf("%s\n", implode("\n", $output));'
 ```
 
-
 テーマをアップデート用
 ```Shell
 wp eval 'exec(file_get_contents("https://raw.githubusercontent.com/ayaoriko/custom-wp-cli-shell/master/update.sh")." > /dev/null", $output); printf("%s\n", implode("\n", $output));'
@@ -43,6 +42,10 @@ WooCommerceのインストール
 wp --allow-root plugin install woocommerce --activate
 ```
 
+ダミーデータのインポート
+```
+wp plugin install wordpress-importer --activate && wp import ~/Documents/wp-cil/wordpress-theme-test-data-ja.xml --authors=create
+```
 
 ## 補足
 あくまであやおり子が仕事で使うための設定集になりますので、予告なしに中身を変える可能性もございます。予めご了承ください。

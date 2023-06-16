@@ -22,10 +22,7 @@ wp option update date_format 'Y-m-d'
 wp option update time_format 'H:i'
 
 # パーマリンクを投稿名に設定
-wp rewrite structure '/%postname%/'
-
-# リライトルールを更新
-wp rewrite flush
+wp rewrite structure '/%category%/%post_id%' --allow-root
 
 # サンプルの投稿、固定ページを削除
 wp post delete 1 2 3 --force
@@ -40,13 +37,13 @@ wp config set WP_DEBUG true --raw
 wp option update show_on_front 'page'
 
 # トップページを作成して表示設定
-wp option update page_on_front $(wp post create --post_type=page --post_title="トップページ" --post_status=Publish --porcelain)
+wp option update page_on_front $(wp post create --post_type=page --post_title="TOP" --post_status=Publish --porcelain)
 
 # 固定ページを作成して表示設定
-wp option update page_for_posts $(wp post create --post_type=page --post_title="投稿ページ" --post_status=Publish --porcelain)
+wp option update page_for_posts $(wp post create --post_type=page --post_title="Blog" --post_status=Publish --porcelain)
 
 # テーマを全削除
-wp theme delete --all --force
+wp theme delete --all
 
 # プラグインを一旦すべて削除する
 wp plugin delete --all
@@ -54,8 +51,12 @@ wp plugin delete --all
 # 必要なプラグインインストール
 wp plugin install wp-multibyte-patch --activate
 wp plugin install theme-check --activate
-wp plugin install wp-reset --activate
-wp plugin install all-in-one-wp-migration --activate
+wp plugin install show-current-template --activate
+wp plugin install wp-reset
+wp plugin install all-in-one-wp-migration
+
+# リライトルールを再度更新
+wp rewrite flush 
 
 # Mailhog メールが文字化けしないよう WP Multibyte Patch の設定調整
 # https://eastcoder.com/code/wp-multibyte-patch/
