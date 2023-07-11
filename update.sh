@@ -15,3 +15,6 @@ wp core language update
 
 # プラグイン全更新
 wp plugin update --all
+
+# テーマを全削除
+wp theme delete --all

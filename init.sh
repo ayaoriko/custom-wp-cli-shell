@@ -51,7 +51,7 @@ wp plugin delete --all
 # 必要なプラグインインストール
 wp plugin install wp-multibyte-patch --activate
 wp plugin install theme-check --activate
-wp plugin install show-current-template --activate
+wp plugin install query-monitor --activate
 wp plugin install wp-reset
 wp plugin install all-in-one-wp-migration
 
