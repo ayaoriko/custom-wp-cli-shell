@@ -50,10 +50,18 @@ wp plugin delete --all
 
 # 必要なプラグインインストール
 wp plugin install wp-multibyte-patch --activate
-wp plugin install theme-check --activate
-wp plugin install query-monitor --activate
-wp plugin install wp-reset
+wp plugin install classic-editor --activate
+wp plugin install wp-downgrade
 wp plugin install all-in-one-wp-migration
+# wp plugin install query-monitor --activate
+# wp plugin install theme-check
+# wp plugin install wp-reset
+
+# クラシックエディター
+# 投稿設定：すべてのユーザーのデフォルトエディター→ブロックエディタ
+# 投稿設定：クラシックエディター「ユーザーにエディターの切り替えを許可」
+wp option update classic-editor-replace 'block'
+wp option update classic-editor-allow-users 'allow'
 
 # リライトルールを再度更新
 wp rewrite flush 
